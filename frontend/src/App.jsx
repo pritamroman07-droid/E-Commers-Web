@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomeScreen from './pages/HomeScreen';
+import LoginScreen from './pages/LoginScreen';
+import RegisterScreen from './pages/RegisterScreen';
 
 const App = () => {
   return (
@@ -10,7 +12,8 @@ const App = () => {
       <main className="py-3">
         <Routes>
           <Route path="/" element={<HomeScreen />} exact />
-          {/* We'll add more routes here later */}
+          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/register" element={<RegisterScreen />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>

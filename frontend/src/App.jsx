@@ -8,6 +8,7 @@ import CartScreen from './pages/CartScreen';
 import ShippingScreen from './pages/ShippingScreen';
 import PaymentScreen from './pages/PaymentScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
+import UserListScreen from './pages/UserListScreen';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/shipping" element={<ShippingScreen />} />
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
+          <Route path="/admin/userlist" element={<UserListScreen />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>

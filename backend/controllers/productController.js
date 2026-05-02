@@ -49,4 +49,23 @@ const createProduct = async (req, res) => {
   res.status(201).json(createdProduct);
 };
 
-export { getProducts, getProductById, createProduct };
+// @desc    Get AI-powered product recommendations
+// @route   GET /api/products/:id/recommendations
+// @access  Public
+const getRecommendedProducts = async (req, res) => {
+  const product = await Product.findById(req.params.id);
+
+  if (product) {
+    // Simple AI-like logic: find products in the same category, excluding the current one
+    const recommendations = await Product.find({
+      category: product.category,
+      _id: { $ne: product._id }, // Don't recommend the same product
+    }).limit(4); // Limit to 4 suggestions
+
+    res.json(recommendations);
+  } else {
+    res.status(404).json({ message: 'Product not found' });
+  }
+};
+
+export { getProducts, getProductById, createProduct, getRecommendedProducts };

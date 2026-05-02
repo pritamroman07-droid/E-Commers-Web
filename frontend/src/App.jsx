@@ -5,6 +5,9 @@ import HomeScreen from './pages/HomeScreen';
 import LoginScreen from './pages/LoginScreen';
 import RegisterScreen from './pages/RegisterScreen';
 import CartScreen from './pages/CartScreen';
+import ShippingScreen from './pages/ShippingScreen';
+import PaymentScreen from './pages/PaymentScreen';
+import PlaceOrderScreen from './pages/PlaceOrderScreen';
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/cart" element={<CartScreen />} />
+          <Route path="/shipping" element={<ShippingScreen />} />
+          <Route path="/payment" element={<PaymentScreen />} />
+          <Route path="/placeorder" element={<PlaceOrderScreen />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>

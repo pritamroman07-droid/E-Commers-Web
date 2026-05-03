@@ -43,6 +43,11 @@ const Header = () => {
 
         <ul className="nav-links">
           <li>
+            <Link to="/about" className="nav-item" style={{ fontSize: '0.9rem', fontWeight: '500' }}>
+              About
+            </Link>
+          </li>
+          <li>
             <Link to="/cart" className="nav-item">
               <ShoppingCart size={22} />
               {cartItems.length > 0 && <span className="badge">{cartItems.length}</span>}

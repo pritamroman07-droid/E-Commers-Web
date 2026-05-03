@@ -1,10 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ShoppingCart } from 'lucide-react';
+import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { useState } from 'react';
 
 const Product = ({ product }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   return (
-    <div className="product-card">
+    <div className="product-card" style={{ position: 'relative' }}>
+      <button 
+        onClick={() => setIsFavorite(!isFavorite)}
+        style={{ 
+          position: 'absolute', 
+          top: '1rem', 
+          right: '1rem', 
+          zIndex: 10, 
+          background: 'rgba(0, 0, 0, 0.3)', 
+          padding: '0.5rem', 
+          borderRadius: '50%', 
+          backdropFilter: 'blur(4px)',
+          color: isFavorite ? '#ef4444' : 'white',
+          transition: 'all 0.3s ease'
+        }}
+      >
+        <Heart size={20} fill={isFavorite ? '#ef4444' : 'none'} />
+      </button>
+
       <Link to={`/product/${product._id}`}>
         <img src={product.image} alt={product.name} className="product-image" />
       </Link>

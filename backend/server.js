@@ -16,7 +16,10 @@ connectDB();
 const app = express();
 
 // Middleware to allow our frontend to talk to our backend
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 
 // Middleware to allow our server to understand JSON data in the request body
 app.use(express.json());

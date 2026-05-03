@@ -21,6 +21,14 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: false, // By default, users are not admins
   },
+  mobile: {
+    type: String,
+    default: '',
+  },
+  address: {
+    type: String,
+    default: '',
+  },
 }, {
   timestamps: true, // This automatically adds 'createdAt' and 'updatedAt' fields
 });

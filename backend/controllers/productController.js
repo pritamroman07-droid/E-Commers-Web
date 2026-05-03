@@ -4,15 +4,27 @@ import Product from '../models/productModel.js';
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
-  // We can add search functionality here
   const keyword = req.query.keyword ? {
     name: {
       $regex: req.query.keyword,
-      $options: 'i', // Case-insensitive
+      $options: 'i',
     },
   } : {};
 
-  const products = await Product.find({ ...keyword });
+  const category = req.query.category ? { category: req.query.category } : {};
+  
+  const rating = req.query.rating ? { 
+    rating: { $gte: Number(req.query.rating) } 
+  } : {};
+
+  const price = (req.query.priceMin || req.query.priceMax) ? {
+    price: {
+      ...(req.query.priceMin && { $gte: Number(req.query.priceMin) }),
+      ...(req.query.priceMax && { $lte: Number(req.query.priceMax) }),
+    }
+  } : {};
+
+  const products = await Product.find({ ...keyword, ...category, ...rating, ...price });
   res.json(products);
 };
 

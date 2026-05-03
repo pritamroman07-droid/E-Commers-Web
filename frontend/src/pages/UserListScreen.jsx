@@ -15,7 +15,7 @@ const UserListScreen = () => {
             Authorization: `Bearer ${userInfo.token}`,
           },
         };
-        const { data } = await axios.get('http://localhost:5000/api/users', config);
+        const { data } = await axios.get('http://localhost:5001/api/users', config);
         setUsers(data);
       } catch (err) {
         console.error(err);

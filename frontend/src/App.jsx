@@ -9,6 +9,8 @@ import ShippingScreen from './pages/ShippingScreen';
 import PaymentScreen from './pages/PaymentScreen';
 import PlaceOrderScreen from './pages/PlaceOrderScreen';
 import UserListScreen from './pages/UserListScreen';
+import ProfileScreen from './pages/ProfileScreen';
+import ProductScreen from './pages/ProductScreen';
 
 const App = () => {
   return (
@@ -19,15 +21,17 @@ const App = () => {
           <Route path="/" element={<HomeScreen />} exact />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/product/:id" element={<ProductScreen />} />
           <Route path="/cart" element={<CartScreen />} />
           <Route path="/shipping" element={<ShippingScreen />} />
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />
           <Route path="/admin/userlist" element={<UserListScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
         </Routes>
       </main>
       <footer style={{ textAlign: 'center', padding: '2rem 0', color: '#94a3b8' }}>
-        <p>&copy; 2024 GravityShop. All rights reserved.</p>
+        <p>&copy; 2024 SweetShop. All rights reserved.</p>
       </footer>
     </Router>
   );

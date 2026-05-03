@@ -62,6 +62,7 @@ const productSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  sizes: [String], // Available sizes for fashion products
 }, {
   timestamps: true,
 });

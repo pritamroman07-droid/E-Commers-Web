@@ -8,22 +8,23 @@ export const AuthProvider = ({ children }) => {
     localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
   );
 
+  const logout = () => {
+    setUserInfo(null);
+    localStorage.removeItem('userInfo');
+  };
+
   const login = async (email, password) => {
-    const { data } = await axios.post('http://localhost:5000/api/users/login', { email, password });
+    const { data } = await axios.post('http://localhost:5001/api/users/login', { email, password });
     setUserInfo(data);
     localStorage.setItem('userInfo', JSON.stringify(data));
   };
 
   const register = async (name, email, password) => {
-    const { data } = await axios.post('http://localhost:5000/api/users', { name, email, password });
+    const { data } = await axios.post('http://localhost:5001/api/users', { name, email, password });
     setUserInfo(data);
     localStorage.setItem('userInfo', JSON.stringify(data));
   };
 
-  const logout = () => {
-    setUserInfo(null);
-    localStorage.removeItem('userInfo');
-  };
 
   return (
     <AuthContext.Provider value={{ userInfo, login, register, logout }}>
